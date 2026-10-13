@@ -1,4 +1,5 @@
-"""Xử lý dữ liệu - thành viên A."""
+
+"""Xử lý dữ liệu - Khánh Linh."""
 
 from pathlib import Path
 import pandas as pd
@@ -10,6 +11,29 @@ OUTPUT_FILE = ROOT / "data" / "processed" / "clean_data.csv"
 
 # Các cột không sử dụng trong bản dữ liệu làm việc
 DROP_COLUMNS = ["Email", "Grade"]
+
+# Đổi tên các thuộc tính sang tiếng Việt
+COLUMN_NAMES_VI = {
+    "Student_ID": "Mã sinh viên",
+    "First_Name": "Tên",
+    "Last_Name": "Họ",
+    "Gender": "Giới tính",
+    "Age": "Tuổi",
+    "Department": "Ngành học",
+    "Attendance (%)": "Tỷ lệ chuyên cần (%)",
+    "Midterm_Score": "Điểm giữa kỳ",
+    "Final_Score": "Điểm cuối kỳ",
+    "Assignments_Avg": "Điểm bài tập trung bình",
+    "Quizzes_Avg": "Điểm kiểm tra ngắn trung bình",
+    "Participation_Score": "Điểm tham gia học tập",
+    "Projects_Score": "Điểm dự án",
+    "Total_Score": "Điểm tổng kết",
+    "test_preparation_course": "Tham gia khóa ôn tập",
+    "math_score": "Điểm Toán",
+    "reading_score": "Điểm Đọc hiểu",
+    "writing_score": "Điểm Viết",
+    "science_score": "Điểm Khoa học"
+}
 
 
 def clean_data():
@@ -88,14 +112,33 @@ def clean_data():
     print("Kieu math_score:", df["math_score"].dtype)
 
     if df.isna().sum().sum() > 0:
-        raise ValueError("Du lieu sau xu ly van co gia tri thieu.")
+        raise ValueError(
+            "Du lieu sau xu ly van co gia tri thieu."
+        )
 
     if df.shape[1] != 19:
-        raise ValueError("So cot sau xu ly khong bang 19.")
+        raise ValueError(
+            "So cot sau xu ly khong bang 19."
+        )
 
-    # 7. Lưu dữ liệu sạch
-    OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
-    df.to_csv(OUTPUT_FILE, index=False, encoding="utf-8-sig")
+    # 7. Đổi tên các thuộc tính sang tiếng Việt
+    df = df.rename(columns=COLUMN_NAMES_VI)
+
+    print("\n=== TEN COT SAU KHI DOI ===")
+    for col in df.columns:
+        print("-", col)
+
+    # 8. Lưu dữ liệu sạch
+    OUTPUT_FILE.parent.mkdir(
+        parents=True,
+        exist_ok=True
+    )
+
+    df.to_csv(
+        OUTPUT_FILE,
+        index=False,
+        encoding="utf-8-sig"
+    )
 
     print("\nDa luu:", OUTPUT_FILE)
     print("CLEAN DATA OK!")
