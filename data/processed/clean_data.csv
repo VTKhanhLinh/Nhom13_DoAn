@@ -1,4 +1,4 @@
-﻿Student_ID,First_Name,Last_Name,Gender,Age,Department,Attendance (%),Midterm_Score,Final_Score,Assignments_Avg,Quizzes_Avg,Participation_Score,Projects_Score,Total_Score,test_preparation_course,math_score,reading_score,writing_score,science_score
+﻿Mã sinh viên,Tên,Họ,Giới tính,Tuổi,Ngành học,Tỷ lệ chuyên cần (%),Điểm giữa kỳ,Điểm cuối kỳ,Điểm bài tập trung bình,Điểm kiểm tra ngắn trung bình,Điểm tham gia học tập,Điểm dự án,Điểm tổng kết,Tham gia khóa ôn tập,Điểm Toán,Điểm Đọc hiểu,Điểm Viết,Điểm Khoa học
 S1000,Omar,Williams,Female,22.0,Engineering,52.29,55.03,57.82,84.22,74.06,3.99,85.9,56.09,1.0,89,38.0,85.0,26.0
 S1001,Maria,Brown,Male,18.0,Engineering,97.27,97.23,45.8,74.32,94.24,8.32,55.65,50.64,0.0,65,100.0,67.0,96.0
 S1002,Ahmed,Jones,Male,24.0,Business,57.19,67.05,93.68,67.7,85.7,5.05,73.79,70.3,0.0,10,99.0,97.0,58.0
